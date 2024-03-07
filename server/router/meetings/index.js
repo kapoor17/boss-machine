@@ -1,5 +1,5 @@
 const express = require('express');
-const { getFromDatabaseById, getAllFromDatabase, addToDatabase, deleteAllFromDatabase } = require('../../db');
+const { getFromDatabaseById, getAllFromDatabase, addToDatabase, deleteAllFromDatabase, createMeeting } = require('../../db');
 const meetingsRouter = express.Router();
 
 meetingsRouter.get('/', (req, res, next) => {
@@ -7,7 +7,7 @@ meetingsRouter.get('/', (req, res, next) => {
 })
 
 meetingsRouter.post('/', (req, res, next) => {
-    const newMeeting = addToDatabase('meetings', req.body);
+    const newMeeting = addToDatabase('meetings', createMeeting());
     res.status(201).send(newMeeting);
 })
 

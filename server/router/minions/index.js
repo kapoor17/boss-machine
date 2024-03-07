@@ -8,9 +8,7 @@ minionsRouter.param('minionId', (req, res, next, minionId) => {
         req.minion = minionExist;
         next();
     }else{
-        res.status(404).json({
-            error: 'Minion does not exist'
-        })
+        res.status(404).send()
     }
 })
 
